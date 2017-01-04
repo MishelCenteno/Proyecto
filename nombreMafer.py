@@ -1,0 +1,150 @@
+import turtle
+from turtle import *
+turtle.setup(1000, 500,0,0)
+screensize(3000, 1000)
+title("Nombre Mafer con Turtle")
+
+def m(x,y,a,color): #a = 50 i = 0
+    fillcolor(color)
+    begin_fill()
+    b = int(a/2)
+    LinInv(x,y)
+    goto(a+x,y)
+    goto(a+x,a*3+y)
+    goto(b*3+x,y)
+    goto(b*5+x,y)
+    goto(a*3+x,a*3+y)
+    goto(a*3+x,y)
+    goto(a*4+x,y)
+    goto(a*4+x,a*5+y)
+    goto(a*3+x,a*5+y)
+    goto(a*2+x,a*3+y)
+    goto(a+x,a*5+y)
+    goto(x,a*5+y)
+    goto(x,y)   
+    end_fill()
+    return a*4 + x
+    
+def r(x,y,a,color):
+    fillcolor(color)
+    b = int(a/2)
+    begin_fill()
+    goto(a+x,y)
+    goto(a+x,a*2+y)
+    goto(a*3+x,y)
+    goto(a*4+x,y)
+    goto(a*2+x,a*2+y)
+    LinInv(a*2+x,a*5+y)
+    turtle.circle(-(b*3),180)
+    LinInv(a*2+x,a*5+y)
+    goto(x,a*5+y)
+    goto(x,y)
+    end_fill()
+    LinInv(a*2+x,a*3+y)
+    goto(a*2+x+5,a*3+y)
+    goto(a*2+x,a*3+y)
+    CirInv(-int(a/2),180)
+    fillcolor('white')
+    begin_fill()
+    turtle.circle(-int(a/2),180)
+    end_fill()
+    LinInv(a*2+x,a*4+y)
+    fillcolor('white')
+    begin_fill()
+    goto(a+x,a*4+y)
+    goto(a+x,a*3+y)
+    goto(a*2+x,a*3+y)
+    end_fill()
+    return a*4+x
+        
+
+def f(x,y,a,color):
+    b = int(a/2)
+    fillcolor(color) 
+    begin_fill()
+    goto(x,a*5+y)
+    goto(a*4+x,a*5+y)
+    goto(a*4+x,a*4-b+y)
+    goto(a+x,a*4-b+y)
+    goto(a+x,a*3-b+y)
+    goto(a*4+x,a*3-b+y)
+    goto(a*4+x,a+b+y)
+    goto(a+x,a+b+y)
+    goto(a+x,y)
+    goto(x,y)    
+    end_fill()
+    return a*4+x
+    
+def e(x,y,a,color):
+    fillcolor(color)
+    b = int(a/2)
+    begin_fill()
+    goto(x,a*5+y)
+    goto(a*4+x,a*5+y)
+    goto(a*4+x,a*4+y)    
+    goto(a+x,a*4+y)
+    goto(a+x,a*3+y)
+    goto(a*4+x,a*3+y)
+    goto(a*4+x,a*2+y)
+    goto(a+x,a*2+y)
+    goto(a+x,a+y)
+    goto(a*4+x,a+y)
+    goto(a*4+x,y)
+    goto(x,y)
+    end_fill()
+    return a*4+x
+    
+def a(x,y,a,color):
+    b = int(a/2)
+    fillcolor(color)
+    begin_fill()
+    goto(x,a*5+y)
+    goto(a*4+x,a*5+y)
+    goto(a*4+x,y)
+    goto(a*3+x,y)
+    goto(a*2+b+x,a*2+y)
+    goto(a+b+x,a*2+y)
+    goto(a+x,y)
+    goto(x,y)
+    end_fill()
+    LinInv(a+b+x,a*3+y)
+    fillcolor('white')
+    begin_fill()
+    goto(a+b+x,a*4+y)
+    goto(a*2+b+x,a*4+y)
+    goto(a*2+b+x,a*3+y)
+    goto(a+b+x,a*3+y)
+    end_fill()    
+    return a*4 +x   
+    
+def LinInv(x,y):
+    penup()
+    goto(x,y)
+    pendown ()
+    
+def CirInv(x,y):
+    penup()
+    turtle.circle(x,y)
+    pendown ()
+
+def mover(x,y,d):
+    LinInv(x+d,y)
+    #print("Posicion Movida:", turtle.position())    
+    return x +d
+
+def main(d,t):
+    p1 = m(0,0,t,"green")
+    p2 = mover(p1,0,distancia)
+    p3 = a(p2,0,t,"green")
+    p4 = mover(p3,0,distancia)
+    p5 = f(p4,0,t,"green")
+    p6 = mover(p5,0,distancia)
+    p7 = e(p6,0,t,"green")
+    p8 = mover(p7,0,distancia)
+    r(p8,0,t,"green")
+    hideturtle()    
+
+distancia = int(input("Ingrese la distancia de separacion de las letras\n"))
+tamaño = int(input("Ingrese el ancho de la letra \n"))
+main(distancia,tamaño)
+#sety(n) y setx(n)  mover una distancia en el eje x o y
